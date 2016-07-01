@@ -7,6 +7,9 @@ import org.junit.rules.ExpectedException;
 
 import javax.persistence.PersistenceException;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -16,14 +19,18 @@ public class BookPersistenceTest extends DataSetPersistenceTest {
 
     @Test
     public void bookCanBePersisted() throws Exception {
-        Book book = new Book("Animal Farm", "George Orwell", Book.Genre.thriller);
+        Collection a = new ArrayList<String>();
+        a.add("George Orwell");
+        Book book = new Book("Animal Farm", a, Book.Genre.thriller);
         entityManager().persist(book);
         assertNotNull(book.getId());
     }
 
     @Test(expected = PersistenceException.class)
     public void bookCanNotBePersistedWithoutTitle() throws Exception {
-        Book book = new Book(null, "John Doe", Book.Genre.thriller);
+        Collection a = new ArrayList<String>();
+        a.add("George Orwell");
+        Book book = new Book(null, a, Book.Genre.thriller);
         entityManager().persist(book);
     }
 

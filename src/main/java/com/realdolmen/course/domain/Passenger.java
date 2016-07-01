@@ -5,6 +5,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -47,7 +48,14 @@ public class Passenger {
     @ElementCollection
     @CollectionTable(name = "passenger_emails", joinColumns = @JoinColumn(name ="p_id"))
     @Column(name = "email")
-    private List<String> emails;
+    private List<String> emails = new ArrayList<>();
+
+
+//    @OneToMany
+//    @JoinTable( name = "passenger_tickets", joinColumns = @JoinColumn(name = "t_id"),
+//            inverseJoinColumns = @JoinColumn(name = "p_id"),foreignKey = @ForeignKey(name="FK_PSS_TO_PSSTICK"),
+//            inverseForeignKey =  @ForeignKey(name="FK_TICK_TO_PSSTICK"))
+//    private Collection<Ticket> tickets = new ArrayList<>();
 
 
     public Passenger() {
@@ -62,7 +70,6 @@ public class Passenger {
         this.dateOfBirth = dateOfBirth;
         this.lastFlight = lastFlight;
         this.type = type;
-        this.emails = new ArrayList<>();
     }
 
     public Long getId() {

@@ -1,5 +1,6 @@
 package com.realdolmen.course;
 
+import com.realdolmen.course.domain.Flight;
 import com.realdolmen.course.domain.Passenger;
 import com.realdolmen.course.domain.PassengerType;
 import org.hibernate.PropertyValueException;
@@ -29,6 +30,13 @@ import static org.junit.Assert.assertTrue;
 public class PassengerPersistenceTest extends DataSetPersistenceTest {
     @Rule
     public ExpectedException expector = ExpectedException.none();
+
+
+    @Test
+    public void flightCanBeRetrievedById() throws Exception {
+        assertEquals("-1", entityManager().find(Flight.class, -1L).getId());
+        assertEquals("-1", entityManager().find(Flight.class, -1L).getId());
+    }
 
     @Test
     public void passengerCanStoreManyEmails()  throws Exception {

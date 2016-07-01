@@ -1,6 +1,8 @@
 package com.realdolmen.course.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
 public class Book {
@@ -15,10 +17,15 @@ public class Book {
     @Basic(optional = false)
     private String title;
 
-    private String author;
+    @ManyToMany
+    @JoinTable( name = "author_book", joinColumns = @JoinColumn(name = "a_id"),
+            inverseJoinColumns = @JoinColumn(name = "b_id"),foreignKey = @ForeignKey(name="FK_BK_TO_BKAUTH"),
+            inverseForeignKey =  @ForeignKey(name="FK_AUT_TO_BKAUTH"))
+    private Collection<Author> authors = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private Genre genre;
+
 
     /**
      * Used by JPA.
@@ -26,9 +33,9 @@ public class Book {
     protected Book() {
     }
 
-    public Book(String title, String author, Genre genre) {
+    public Book(String title, Collection author, Genre genre) {
         this.title = title;
-        this.author = author;
+        this.authors = author;
         this.genre = genre;
     }
 
@@ -44,12 +51,12 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthor() {
-        return author;
+    public Collection getAuthor() {
+        return authors;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setAuthor(Collection author) {
+        this.authors = author;
     }
 
     public Genre getGenre() {
