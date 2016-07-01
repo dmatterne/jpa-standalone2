@@ -3,6 +3,7 @@ package com.realdolmen.course;
 import com.realdolmen.course.domain.Flight;
 import com.realdolmen.course.domain.Passenger;
 import com.realdolmen.course.domain.PassengerType;
+import com.realdolmen.course.domain.Ticket;
 import org.hibernate.PropertyValueException;
 import org.junit.Assert;
 import org.junit.Rule;
@@ -34,8 +35,17 @@ public class PassengerPersistenceTest extends DataSetPersistenceTest {
 
     @Test
     public void flightCanBeRetrievedById() throws Exception {
-        assertEquals("-1", entityManager().find(Flight.class, -1L).getId());
-        assertEquals("-1", entityManager().find(Flight.class, -1L).getId());
+        assertEquals("-1", entityManager().find(Flight.class, -1L).getId() + "");
+        assertEquals("-1", entityManager().find(Flight.class, -1L).getId() + "");
+    }
+
+    @Test
+    public void addNewTickedCanBeRetrievedById() throws Exception {
+
+        //Ticket t = new Ticket(0.0,,entityManager().find(Flight.class, -1L).getId());
+
+        assertEquals("-1", entityManager().find(Flight.class, -1L).getId() + "");
+        assertEquals("-1", entityManager().find(Flight.class, -1L).getId() + "");
     }
 
     @Test
