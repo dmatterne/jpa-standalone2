@@ -1,5 +1,6 @@
 <dataset>
-   <passenger id="0" ssn="123456789" firstName="David" lastName="M" frequentFlyerMiles="1000" />
-   <passenger id="1" ssn="987456321" firstName="Geert" lastName="V" frequentFlyerMiles="0" />
-   <passenger id="2" ssn="987654321" firstName="Nancy" lastName="D" frequentFlyerMiles="2000" />
+   <passenger id="-3" ssn="123456789" firstName="David" lastName="M" frequentFlyerMiles="1000" dateOfBirth="1985-12-17"  type="OCCASIONAL"/>
+   <passenger id="-1" ssn="987456321" firstName="Geert" lastName="V" frequentFlyerMiles="0" dateOfBirth="1985-12-17"  type="OCCASIONAL"/>
+   <passenger id="-2" ssn="987654321" firstName="Nancy" lastName="D" frequentFlyerMiles="2000" dateOfBirth="1985-12-17"  type="OCCASIONAL"/>
+   <passenger_emails p_id="-1" email="dummy" />
 </dataset>
