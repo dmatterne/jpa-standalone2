@@ -10,7 +10,7 @@ import java.util.Collection;
  * Created by stannisbaratheon on 01/07/16.
  */
 @Entity
-public class Flight {
+public abstract class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,9 +23,6 @@ public class Flight {
 
     @OneToMany(mappedBy = "flight")
     private Collection<Ticket> tickets = new ArrayList<>();
-
-
-
 
     public Long getId() {
         return id;
