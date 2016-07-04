@@ -1,9 +1,6 @@
 package com.realdolmen.course;
 
-import com.realdolmen.course.domain.Flight;
-import com.realdolmen.course.domain.Passenger;
-import com.realdolmen.course.domain.PassengerType;
-import com.realdolmen.course.domain.Ticket;
+import com.realdolmen.course.domain.*;
 import org.hibernate.PropertyValueException;
 import org.junit.Assert;
 import org.junit.Rule;
@@ -19,7 +16,9 @@ import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -37,6 +36,18 @@ public class PassengerPersistenceTest extends DataSetPersistenceTest {
     public void flightCanBeRetrievedById() throws Exception {
         assertEquals("-1", entityManager().find(Flight.class, -1L).getId() + "");
         assertEquals("-1", entityManager().find(Flight.class, -1L).getId() + "");
+    }
+
+
+    @Test
+    public void checkDomesticFlight() throws Exception {
+//        Passenger pass = new Passenger("4657891235", "David", "D", 1000, LocalDate.of(1985,12,17), LocalDateTime.of(2014,12,17,14,36), PassengerType.REGULAR);
+//        Ticket t = new Ticket();
+//        DomesticFlight d = new DomesticFlight("0",LocalDateTime.of(2014,12,17,14,36),LocalDateTime.of(2014,12,17,14,36),"","Jetair",new ArrayList(""));
+
+        Flight f = new DomesticFlight("0",LocalDateTime.of(2014,12,17,14,36),LocalDateTime.of(2014,12,17,14,36),"","Jetair",null);
+
+        assertEquals("-1", entityManager().find(DomesticFlight.class, -10L).getId() + "");
     }
 
     @Test
