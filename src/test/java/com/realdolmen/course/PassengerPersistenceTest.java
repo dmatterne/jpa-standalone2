@@ -1,24 +1,17 @@
 package com.realdolmen.course;
 
-import com.realdolmen.course.domain.*;
-import org.hibernate.PropertyValueException;
+import com.realdolmen.course.domain.Flights.*;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -45,9 +38,17 @@ public class PassengerPersistenceTest extends DataSetPersistenceTest {
 //        Ticket t = new Ticket();
 //        DomesticFlight d = new DomesticFlight("0",LocalDateTime.of(2014,12,17,14,36),LocalDateTime.of(2014,12,17,14,36),"","Jetair",new ArrayList(""));
 
-        Flight f = new DomesticFlight("0",LocalDateTime.of(2014,12,17,14,36),LocalDateTime.of(2014,12,17,14,36),"","Jetair",null);
+        Flight f = new DomesticFlight("0",LocalDateTime.of(2014,12,17,14,36),LocalDateTime.of(2014,12,17,14,36),"Jetair");
 
-        assertEquals("-1", entityManager().find(DomesticFlight.class, -10L).getId() + "");
+        Passenger pass = new Passenger("465789123", "Peter", "D", 1000, LocalDate.of(1985,12,17), LocalDateTime.of(2014,12,17,14,36), PassengerType.REGULAR);
+
+        Ticket c = new Ticket(0.0,pass,f);
+
+        entityManager().persist(f);
+        entityManager().persist(pass);
+        entityManager().persist(c);
+
+        assertEquals("1", entityManager().find(Flight.class, 1L).getId() + "");
     }
 
     @Test
@@ -55,7 +56,6 @@ public class PassengerPersistenceTest extends DataSetPersistenceTest {
 
         //Ticket t = new Ticket(0.0,,entityManager().find(Flight.class, -1L).getId());
 
-        assertEquals("-1", entityManager().find(Flight.class, -1L).getId() + "");
         assertEquals("-1", entityManager().find(Flight.class, -1L).getId() + "");
     }
 

@@ -1,7 +1,8 @@
-package com.realdolmen.course.domain;
+package com.realdolmen.course.domain.Flights;
+
+import com.realdolmen.course.domain.Flights.Ticket;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -23,6 +24,13 @@ public abstract class Flight {
 
     @OneToMany(mappedBy = "flight")
     private Collection<Ticket> tickets = new ArrayList<>();
+
+
+    public Flight(String number, LocalDateTime departureTime, LocalDateTime arrivalTime) {
+        this.number = number;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+    }
 
     public Long getId() {
         return id;
@@ -60,7 +68,8 @@ public abstract class Flight {
         return tickets;
     }
 
-    public void setTickets(Collection<Ticket> tickets) {
-        this.tickets = tickets;
+    public void addTickets(Ticket ticket) {
+
+        tickets.add(ticket);
     }
 }

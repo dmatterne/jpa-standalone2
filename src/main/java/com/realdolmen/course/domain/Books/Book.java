@@ -1,4 +1,6 @@
-package com.realdolmen.course.domain;
+package com.realdolmen.course.domain.Books;
+
+import com.realdolmen.course.domain.Books.Author;
 
 import javax.persistence.*;
 import java.util.ArrayList;

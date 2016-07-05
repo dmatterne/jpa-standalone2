@@ -1,9 +1,10 @@
-package com.realdolmen.course.domain;
+package com.realdolmen.course.domain.Flights;
+
+import com.realdolmen.course.domain.Flights.Flight;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import java.time.LocalDateTime;
-import java.util.Collection;
 
 /**
  * Created by stannisbaratheon on 04/07/16.
@@ -14,6 +15,12 @@ public class InternationalFlight extends Flight {
 
     private boolean blacklisted;
     private String regulations;
+
+    public InternationalFlight(String number, LocalDateTime departureTime, LocalDateTime arrivalTime, boolean blacklisted, String regulations) {
+        super(number, departureTime, arrivalTime);
+        this.blacklisted = blacklisted;
+        this.regulations = regulations;
+    }
 
     public boolean isBlacklisted() {
         return blacklisted;

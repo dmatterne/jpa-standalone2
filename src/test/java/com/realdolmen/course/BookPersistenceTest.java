@@ -1,6 +1,6 @@
 package com.realdolmen.course;
 
-import com.realdolmen.course.domain.Book;
+import com.realdolmen.course.domain.Books.Book;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
