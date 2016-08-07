@@ -5,6 +5,6 @@
    <passenger_emails p_id="-1" email="dummy" />
 
    <ticket id ="-1" price="0.0"/>
-   <flight id ="-1"/>
+   <flight id ="-10" dtype ="D" number="1" airlinecompany="jetair" blacklisted="1" />
 
 </dataset>

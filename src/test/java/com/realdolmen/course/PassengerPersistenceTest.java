@@ -1,25 +1,17 @@
 package com.realdolmen.course;
 
-import com.realdolmen.course.domain.Flight;
-import com.realdolmen.course.domain.Passenger;
-import com.realdolmen.course.domain.PassengerType;
-import com.realdolmen.course.domain.Ticket;
-import org.hibernate.PropertyValueException;
+import com.realdolmen.course.domain.Flights.*;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -39,12 +31,31 @@ public class PassengerPersistenceTest extends DataSetPersistenceTest {
         assertEquals("-1", entityManager().find(Flight.class, -1L).getId() + "");
     }
 
+
+    @Test
+    public void checkDomesticFlight() throws Exception {
+//        Passenger pass = new Passenger("4657891235", "David", "D", 1000, LocalDate.of(1985,12,17), LocalDateTime.of(2014,12,17,14,36), PassengerType.REGULAR);
+//        Ticket t = new Ticket();
+//        DomesticFlight d = new DomesticFlight("0",LocalDateTime.of(2014,12,17,14,36),LocalDateTime.of(2014,12,17,14,36),"","Jetair",new ArrayList(""));
+
+        Flight f = new DomesticFlight("0",LocalDateTime.of(2014,12,17,14,36),LocalDateTime.of(2014,12,17,14,36),"Jetair");
+
+        Passenger pass = new Passenger("465789123", "Peter", "D", 1000, LocalDate.of(1985,12,17), LocalDateTime.of(2014,12,17,14,36), PassengerType.REGULAR);
+
+        Ticket c = new Ticket(0.0,pass,f);
+
+        entityManager().persist(f);
+        entityManager().persist(pass);
+        entityManager().persist(c);
+
+        assertEquals("1", entityManager().find(Flight.class, 1L).getId() + "");
+    }
+
     @Test
     public void addNewTickedCanBeRetrievedById() throws Exception {
 
         //Ticket t = new Ticket(0.0,,entityManager().find(Flight.class, -1L).getId());
 
-        assertEquals("-1", entityManager().find(Flight.class, -1L).getId() + "");
         assertEquals("-1", entityManager().find(Flight.class, -1L).getId() + "");
     }
 

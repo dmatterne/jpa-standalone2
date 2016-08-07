@@ -1,7 +1,6 @@
-package com.realdolmen.course.domain;
+package com.realdolmen.course.domain.Flights;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 /**
  * Created by stannisbaratheon on 01/07/16.
@@ -30,6 +29,7 @@ public class Ticket {
         this.price = price;
         this.passenger = passenger;
         this.flight = flight;
+        flight.addTickets(this);
     }
 
     public Long getId() {
@@ -60,7 +60,4 @@ public class Ticket {
         return flight;
     }
 
-    public void setFlight(Flight flight) {
-        this.flight = flight;
-    }
 }

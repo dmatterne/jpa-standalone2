@@ -1,6 +1,5 @@
-package com.realdolmen.course.domain;
+package com.realdolmen.course.domain.Books;
 
-import javax.annotation.Generated;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;

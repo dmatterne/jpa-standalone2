@@ -1,7 +1,8 @@
-package com.realdolmen.course.domain;
+package com.realdolmen.course.domain.Flights;
+
+import com.realdolmen.course.domain.Flights.Ticket;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,7 +11,7 @@ import java.util.Collection;
  * Created by stannisbaratheon on 01/07/16.
  */
 @Entity
-public class Flight {
+public abstract class Flight {
     @Id
     //@GeneratedValue(strategy= GenerationType.IDENTITY)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequence")
@@ -27,7 +28,11 @@ public class Flight {
     private Collection<Ticket> tickets = new ArrayList<>();
 
 
-
+    public Flight(String number, LocalDateTime departureTime, LocalDateTime arrivalTime) {
+        this.number = number;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+    }
 
     public Long getId() {
         return id;
@@ -65,7 +70,8 @@ public class Flight {
         return tickets;
     }
 
-    public void setTickets(Collection<Ticket> tickets) {
-        this.tickets = tickets;
+    public void addTickets(Ticket ticket) {
+
+        tickets.add(ticket);
     }
 }

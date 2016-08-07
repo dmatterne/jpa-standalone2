@@ -1,12 +1,9 @@
-package com.realdolmen.course.domain;
+package com.realdolmen.course.domain.Flights;
 
 import javax.persistence.*;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 /**
