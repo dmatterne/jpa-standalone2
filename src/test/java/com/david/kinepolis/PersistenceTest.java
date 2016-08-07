@@ -1,4 +1,4 @@
-package com.realdolmen.course;
+package com.david.kinepolis;
 
 import org.junit.After;
 import org.junit.AfterClass;

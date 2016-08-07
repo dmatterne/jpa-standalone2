@@ -11,7 +11,9 @@ import java.util.Collection;
 @Entity
 public class Author {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    //@GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "id_Sequence")
+    @SequenceGenerator(name = "id_Sequence", sequenceName = "seq_author")
     private Integer id;
 
     String name;
