@@ -1,6 +1,5 @@
 package com.david.kinepolis;
 
-import com.realdolmen.course.domain.Book;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

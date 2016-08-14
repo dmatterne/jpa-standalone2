@@ -16,6 +16,6 @@ public class CountryRepositoryBean implements CountryRepository {
 
     @Override
     public List<Country> findAllCountries() {
-        return em.createQuery("select c from SN_CNT", Country.class).getResultList();
+        return em.createQuery("select c from COUNTRIES", Country.class).getResultList();
     }
 }

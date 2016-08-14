@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by David on 7/08/2016.
  */
 @Entity
-@Table(name="SN_CNT")
+@Table(name="COUNTRIES")
 public class Country {
 
     @Id
